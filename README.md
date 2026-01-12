@@ -13,6 +13,13 @@ Este repositorio contiene el listado de paquetes VPM para VRChat Creator Compani
 4. Click en **Add**
 5. Los paquetes apareceran en la lista
 
+### Dependencia: NDMF
+
+Menu Radial requiere [NDMF](https://github.com/bdunderscore/ndmf). Si no lo tienes instalado, agrega primero el repositorio de Modular Avatar:
+```
+https://vpm.nadena.dev/vpm.json
+```
+
 ## Paquetes Disponibles
 
 | Paquete | Version | Descripcion |
