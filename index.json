@@ -6,6 +6,38 @@
   "packages": {
     "com.bender-dios.menu-radial": {
       "versions": {
+        "0.7.0": {
+          "name": "com.bender-dios.menu-radial",
+          "version": "0.7.0",
+          "displayName": "Menu Radial",
+          "description": "Sistema de menu radial para avatares VRChat. Genera animaciones, controladores FX, parametros y menus de expresiones de forma visual e intuitiva.",
+          "unity": "2022.3",
+          "unityRelease": "22f1",
+          "documentationUrl": "https://github.com/emerytheec/MenuRadial#readme",
+          "changelogUrl": "https://github.com/emerytheec/MenuRadial/blob/main/CHANGELOG.md",
+          "licensesUrl": "https://github.com/emerytheec/MenuRadial/blob/main/LICENSE",
+          "url": "https://github.com/emerytheec/MenuRadial/releases/download/v0.7.0/com.bender-dios.menu-radial-0.7.0.zip",
+          "keywords": [
+            "vrchat",
+            "avatar",
+            "menu",
+            "radial",
+            "animation",
+            "expressions",
+            "vrc",
+            "sdk3"
+          ],
+          "author": {
+            "name": "Bender_Dios",
+            "url": "https://github.com/emerytheec"
+          },
+          "vpmDependencies": {
+            "com.vrchat.avatars": ">=3.5.0",
+            "nadena.dev.ndmf": ">=1.4.0"
+          },
+          "legacyFolders": {},
+          "license": "MIT"
+        },
         "0.6.0": {
           "name": "com.bender-dios.menu-radial",
           "version": "0.6.0",
