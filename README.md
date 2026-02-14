@@ -1,8 +1,17 @@
-# Bender_Dios VPM Listing
+# Menu Radial - VPM Listing
 
-Este repositorio contiene el listado de paquetes VPM para VRChat Creator Companion.
+Repositorio VPM para [VRChat Creator Companion](https://vcc.docs.vrchat.com/).
 
-## Agregar a VRChat Creator Companion
+**Web**: https://emerytheec.github.io/vpm-listing/
+
+## Quick Install
+
+Haz click para agregar automaticamente a VCC:
+
+- **Menu Radial**: [Add to VCC](vcc://vpm/addRepo?url=https://emerytheec.github.io/vpm-listing/index.json)
+- **NDMF** (dependencia): [Add NDMF to VCC](vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json)
+
+## Manual Install
 
 1. Abre VRChat Creator Companion
 2. Ve a **Settings** > **Packages** > **Add Repository**
@@ -11,23 +20,29 @@ Este repositorio contiene el listado de paquetes VPM para VRChat Creator Compani
    https://emerytheec.github.io/vpm-listing/index.json
    ```
 4. Click en **Add**
-5. Los paquetes apareceran en la lista
+5. Busca **Menu Radial** en la lista de paquetes de tu proyecto
 
 ### Dependencia: NDMF
 
-Menu Radial requiere [NDMF](https://github.com/bdunderscore/ndmf). Si no lo tienes, agrega este repositorio:
+Menu Radial requiere [NDMF](https://ndmf.nadena.dev/). Si no lo tienes, agrega este repositorio:
 ```
 https://vpm.nadena.dev/vpm.json
 ```
-Luego instala **NDMF** desde VCC (no necesitas Modular Avatar).
 
 ## Paquetes Disponibles
 
-| Paquete | Version | Descripcion |
-|---------|---------|-------------|
-| Menu Radial | 0.6.0 | Sistema de menu radial para avatares VRChat |
+| Paquete | ID | Descripcion |
+|---------|----|-------------|
+| Menu Radial | `com.bender-dios.menu-radial` | Sistema automatizado para crear menus de expresiones radiales para avatares VRChat |
 
 ## Links
 
-- [Menu Radial - GitHub](https://github.com/emerytheec/MenuRadial)
-- [Menu Radial - Releases](https://github.com/emerytheec/MenuRadial/releases)
+- [Web](https://emerytheec.github.io/vpm-listing/)
+- [Source Code](https://github.com/emerytheec/MenuRadial)
+- [Releases](https://github.com/emerytheec/MenuRadial/releases)
+- [Changelog](https://github.com/emerytheec/MenuRadial/blob/main/CHANGELOG.md)
+- [Issues](https://github.com/emerytheec/MenuRadial/issues)
+
+## License
+
+MIT
