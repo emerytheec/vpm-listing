@@ -441,6 +441,25 @@
             color: var(--text-secondary);
             line-height: 1.6;
         }
+        .feature-card .btn-feature {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent), #00b4d8);
+            color: #0e0e1a;
+            transition: all var(--transition);
+            box-shadow: 0 0 16px rgba(0, 212, 255, 0.15);
+        }
+        .feature-card .btn-feature:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 24px rgba(0, 212, 255, 0.3);
+            color: #0e0e1a;
+        }
 
         /* ===== How To Section ===== */
         .howto-section {
@@ -722,7 +741,11 @@
             <div class="feature-card">
                 <div class="feature-icon">&#128736;</div>
                 <h3>Non-Destructive (<a href="https://ndmf.nadena.dev/" target="_blank" rel="noopener">NDMF</a>)</h3>
-                <p>7 plugins <a href="https://ndmf.nadena.dev/" target="_blank" rel="noopener">NDMF</a> aplican cambios solo en build. Tu avatar original nunca se modifica. <a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json" style="white-space:nowrap">Add NDMF to VCC</a></p>
+                <p>7 plugins <a href="https://ndmf.nadena.dev/" target="_blank" rel="noopener">NDMF</a> aplican cambios solo en build. Tu avatar original nunca se modifica.</p>
+                <a href="vcc://vpm/addRepo?url=https://vpm.nadena.dev/vpm.json" class="btn-feature">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    Add NDMF to VCC
+                </a>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#129697;</div>
