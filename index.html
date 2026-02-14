@@ -6,12 +6,14 @@
     <title>Menu Radial - VPM Package | Bender_Dios</title>
     <meta name="description" content="Menu Radial para VRChat: genera animaciones, controllers FX, parametros y menus de expresiones de forma visual e intuitiva.">
     <meta name="theme-color" content="#0e0e1a">
+    <link rel="icon" type="image/png" href="logo.png">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Menu Radial - VPM Package">
     <meta property="og:description" content="Sistema automatizado para crear menus de expresiones radiales para avatares VRChat.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://emerytheec.github.io/vpm-listing/">
+    <meta property="og:image" content="https://emerytheec.github.io/vpm-listing/logo.png">
 
     <style>
         /* ===== Reset & Base ===== */
@@ -127,14 +129,15 @@
             font-size: 1.1rem;
             color: var(--text-primary);
         }
-        .nav-brand .brand-icon {
+        .nav-logo {
             width: 32px; height: 32px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
+            border-radius: 50%;
+        }
+        .hero-logo {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 0 24px rgba(0, 212, 255, 0.3));
         }
         .nav-links {
             display: flex;
@@ -603,7 +606,7 @@
 <nav class="nav">
     <div class="container">
         <div class="nav-brand">
-            <div class="brand-icon">MR</div>
+            <img src="logo.png" alt="MR" class="nav-logo">
             <span>Menu Radial</span>
         </div>
         <ul class="nav-links">
@@ -617,6 +620,7 @@
 <!-- Hero -->
 <section class="hero">
     <div class="container">
+        <img src="logo.png" alt="Menu Radial" class="hero-logo">
         <div class="hero-badge">
             <span class="dot"></span>
             <span>VRChat Creator Companion</span>
