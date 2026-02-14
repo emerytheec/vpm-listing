@@ -134,6 +134,11 @@
             border-radius: 50%;
             background: #fff;
         }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
         .hero-title-row {
             display: inline-flex;
             align-items: center;
@@ -162,6 +167,33 @@
             transition: color var(--transition);
         }
         .nav-links a:hover { color: var(--text-primary); }
+
+        /* ===== Language Selector ===== */
+        .lang-select {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition);
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238892b0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            padding-right: 28px;
+        }
+        .lang-select:hover {
+            border-color: var(--border-accent);
+            background-color: var(--bg-card-hover);
+        }
+        .lang-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
         /* ===== Hero ===== */
         .hero {
@@ -194,7 +226,6 @@
             color: var(--accent);
             margin-bottom: 24px;
             width: fit-content;
-            margin-bottom: 24px;
         }
         .hero-badge .dot {
             width: 6px; height: 6px;
@@ -462,25 +493,6 @@
             color: var(--text-secondary);
             line-height: 1.6;
         }
-        .feature-card .btn-feature {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 14px;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, var(--accent), #00b4d8);
-            color: #0e0e1a;
-            transition: all var(--transition);
-            box-shadow: 0 0 16px rgba(0, 212, 255, 0.15);
-        }
-        .feature-card .btn-feature:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0 24px rgba(0, 212, 255, 0.3);
-            color: #0e0e1a;
-        }
 
         /* ===== How To Section ===== */
         .howto-section {
@@ -607,8 +619,9 @@
             .url-box .url-label { display: none; }
             .btn-copy { width: 100%; text-align: center; }
             .package-header { flex-direction: column; }
-            .nav-links { gap: 16px; }
+            .nav-links { gap: 12px; }
             .nav-links a { font-size: 0.8rem; }
+            .nav-right { gap: 12px; }
             .features-grid { grid-template-columns: 1fr; }
             .stats-bar { grid-template-columns: repeat(2, 1fr); }
         }
@@ -630,11 +643,21 @@
             <img src="logo.png" alt="MR" class="nav-logo">
             <span>Menu Radial</span>
         </div>
-        <ul class="nav-links">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#install">Install</a></li>
-            <li><a href="https://github.com/emerytheec/MenuRadial" target="_blank" rel="noopener">GitHub</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#features" data-i18n="navFeatures">Features</a></li>
+                <li><a href="#install" data-i18n="navInstall">Install</a></li>
+                <li><a href="https://github.com/emerytheec/MenuRadial" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+            <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+                <option value="zh">ZH</option>
+                <option value="ja">JA</option>
+                <option value="ko">KO</option>
+                <option value="ru">RU</option>
+            </select>
+        </div>
     </div>
 </nav>
 
@@ -649,10 +672,10 @@
             <img src="logo.png" alt="Menu Radial" class="hero-logo">
             <h1>
                 <span class="gradient-text">Menu Radial</span><br>
-                para VRChat
+                <span data-i18n="heroSubtitle">para VRChat</span>
             </h1>
         </div>
-        <p class="hero-desc">
+        <p class="hero-desc" data-i18n="heroDesc">
             Sistema automatizado para crear menus de expresiones radiales.
             Genera animaciones, controllers FX, parametros y menus de forma visual y no-destructiva.
         </p>
@@ -679,7 +702,7 @@
         <div class="url-box">
             <span class="url-label">URL</span>
             <span class="url-text" id="listing-url">https://emerytheec.github.io/vpm-listing/index.json</span>
-            <button class="btn-copy" id="copy-btn" onclick="copyUrl()">Copy</button>
+            <button class="btn-copy" id="copy-btn" onclick="copyUrl()" data-i18n="btnCopy">Copy</button>
         </div>
     </div>
 </section>
@@ -691,21 +714,21 @@
             <div class="stat-value" id="stat-version">
                 <span class="skeleton" style="width:60px;height:28px"></span>
             </div>
-            <div class="stat-label">Latest Version</div>
+            <div class="stat-label" data-i18n="statVersion">Latest Version</div>
         </div>
         <div class="stat">
             <div class="stat-value" id="stat-versions">
                 <span class="skeleton" style="width:40px;height:28px"></span>
             </div>
-            <div class="stat-label">Releases</div>
+            <div class="stat-label" data-i18n="statReleases">Releases</div>
         </div>
         <div class="stat">
             <div class="stat-value">12</div>
-            <div class="stat-label">Components</div>
+            <div class="stat-label" data-i18n="statComponents">Components</div>
         </div>
         <div class="stat">
             <div class="stat-value">6</div>
-            <div class="stat-label">Languages</div>
+            <div class="stat-label" data-i18n="statLanguages">Languages</div>
         </div>
     </div>
 </section>
@@ -728,7 +751,7 @@
             </p>
             <div class="package-meta">
                 <div class="meta-item">
-                    <span class="meta-label">Author</span>
+                    <span class="meta-label" data-i18n="metaAuthor">Author</span>
                     <span class="meta-value"><a href="https://github.com/emerytheec" target="_blank" rel="noopener">Bender_Dios</a></span>
                 </div>
                 <div class="meta-item">
@@ -736,19 +759,19 @@
                     <span class="meta-value" id="pkg-unity"><span class="skeleton" style="width:80px;height:16px"></span></span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">License</span>
+                    <span class="meta-label" data-i18n="metaLicense">License</span>
                     <span class="meta-value" id="pkg-license"><span class="skeleton" style="width:40px;height:16px"></span></span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Dependencies</span>
+                    <span class="meta-label" data-i18n="metaDeps">Dependencies</span>
                     <span class="meta-value" id="pkg-deps"><span class="skeleton" style="width:120px;height:16px"></span></span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Documentation</span>
+                    <span class="meta-label" data-i18n="metaDocs">Documentation</span>
                     <span class="meta-value"><a href="https://github.com/emerytheec/MenuRadial#readme" target="_blank" rel="noopener">README</a></span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Changelog</span>
+                    <span class="meta-label" data-i18n="metaChangelog">Changelog</span>
                     <span class="meta-value"><a href="https://github.com/emerytheec/MenuRadial/blob/main/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a></span>
                 </div>
             </div>
@@ -760,54 +783,54 @@
 <section class="features-section" id="features">
     <div class="container">
         <div class="section-title">
-            <h2>Features</h2>
-            <p>Todo lo que necesitas para configurar tu avatar en un solo paquete.</p>
+            <h2 data-i18n="featuresTitle">Features</h2>
+            <p data-i18n="featuresDesc">Todo lo que necesitas para configurar tu avatar en un solo paquete.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">&#127916;</div>
-                <h3>Radial Animations</h3>
-                <p>Genera animaciones OnOff, AB y Linear automaticamente a partir de frames capturados visualmente.</p>
+                <h3 data-i18n="feat1Title">Radial Animations</h3>
+                <p data-i18n="feat1Desc">Genera animaciones OnOff, AB y Linear automaticamente a partir de frames capturados visualmente.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#128736;</div>
                 <h3>Non-Destructive (<a href="https://ndmf.nadena.dev/" target="_blank" rel="noopener">NDMF</a>)</h3>
-                <p>7 plugins <a href="https://ndmf.nadena.dev/" target="_blank" rel="noopener">NDMF</a> aplican cambios solo en build. Tu avatar original nunca se modifica.</p>
+                <p data-i18n="feat2Desc">7 plugins NDMF aplican cambios solo en build. Tu avatar original nunca se modifica.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#129697;</div>
-                <h3>Bone Stitching</h3>
-                <p>Cose armatures de ropa automaticamente con 230+ patrones de huesos compatibles.</p>
+                <h3 data-i18n="feat3Title">Bone Stitching</h3>
+                <p data-i18n="feat3Desc">Cose armatures de ropa automaticamente con 230+ patrones de huesos compatibles.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#127912;</div>
-                <h3>Alternative Materials</h3>
-                <p>Sistema de 3 capas para cambiar materiales con animaciones radiales lineales.</p>
+                <h3 data-i18n="feat4Title">Alternative Materials</h3>
+                <p data-i18n="feat4Desc">Sistema de 3 capas para cambiar materiales con animaciones radiales lineales.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#128161;</div>
-                <h3>Radial Illumination</h3>
-                <p>Controla la iluminacion de shaders lilToon via menus radiales en VRChat.</p>
+                <h3 data-i18n="feat5Title">Radial Illumination</h3>
+                <p data-i18n="feat5Desc">Controla la iluminacion de shaders lilToon via menus radiales en VRChat.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#9878;</div>
-                <h3>PhysBone Organization</h3>
-                <p>Reorganiza VRCPhysBones en contenedores limpios automaticamente.</p>
+                <h3 data-i18n="feat6Title">PhysBone Organization</h3>
+                <p data-i18n="feat6Desc">Reorganiza VRCPhysBones en contenedores limpios automaticamente.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#128202;</div>
-                <h3>Texture Analysis</h3>
-                <p>Analiza peso VRAM y Mip Streaming de texturas para optimizar tu avatar.</p>
+                <h3 data-i18n="feat7Title">Texture Analysis</h3>
+                <p data-i18n="feat7Desc">Analiza peso VRAM y Mip Streaming de texturas para optimizar tu avatar.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#128475;</div>
-                <h3>Bounds Adjustment</h3>
-                <p>Unifica bounds de meshes para evitar culling visual en VRChat.</p>
+                <h3 data-i18n="feat8Title">Bounds Adjustment</h3>
+                <p data-i18n="feat8Desc">Unifica bounds de meshes para evitar culling visual en VRChat.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#127760;</div>
-                <h3>Multi-Language</h3>
-                <p>Interfaz localizada en 6 idiomas: ES, EN, ZH, JA, KO, RU.</p>
+                <h3 data-i18n="feat9Title">Multi-Language</h3>
+                <p data-i18n="feat9Desc">Interfaz localizada en 6 idiomas: ES, EN, ZH, JA, KO, RU.</p>
             </div>
         </div>
     </div>
@@ -817,33 +840,29 @@
 <section class="howto-section" id="install">
     <div class="container">
         <div class="section-title">
-            <h2>Installation</h2>
-            <p>Agrega Menu Radial a tu proyecto en menos de un minuto.</p>
+            <h2 data-i18n="installTitle">Installation</h2>
+            <p data-i18n="installDesc">Agrega Menu Radial a tu proyecto en menos de un minuto.</p>
         </div>
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h4>Quick Install</h4>
-                    <p>Haz click en <strong>"Add to VCC"</strong> arriba. Esto abrira VRChat Creator Companion y agregara el repositorio automaticamente.</p>
+                    <h4 data-i18n="step1Title">Quick Install</h4>
+                    <p data-i18n="step1Desc">Haz click en "Add to VCC" arriba. Esto abrira VRChat Creator Companion y agregara el repositorio automaticamente.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h4>Manual Install</h4>
-                    <p>
-                        Si prefieres hacerlo manual: abre VCC, ve a
-                        <code>Settings</code> &rarr; <code>Packages</code> &rarr;
-                        <code>Add Repository</code> y pega la URL del listing.
-                    </p>
+                    <h4 data-i18n="step2Title">Manual Install</h4>
+                    <p data-i18n-html="step2Desc">Si prefieres hacerlo manual: abre VCC, ve a <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> y pega la URL del listing.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h4>Add to Project</h4>
-                    <p>Una vez agregado el repositorio, busca <strong>Menu Radial</strong> en la lista de paquetes de tu proyecto y haz click en <strong>"Add"</strong>.</p>
+                    <h4 data-i18n="step3Title">Add to Project</h4>
+                    <p data-i18n-html="step3Desc">Una vez agregado el repositorio, busca <strong>Menu Radial</strong> en la lista de paquetes de tu proyecto y haz click en <strong>"Add"</strong>.</p>
                 </div>
             </div>
         </div>
@@ -854,37 +873,215 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-links">
-            <a href="https://github.com/emerytheec/MenuRadial" target="_blank" rel="noopener">Source Code</a>
+            <a href="https://github.com/emerytheec/MenuRadial" target="_blank" rel="noopener" data-i18n="footerSource">Source Code</a>
             <a href="https://github.com/emerytheec/MenuRadial/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
-            <a href="https://github.com/emerytheec/MenuRadial/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+            <a href="https://github.com/emerytheec/MenuRadial/blob/main/LICENSE" target="_blank" rel="noopener" data-i18n="footerLicense">MIT License</a>
             <a href="https://github.com/emerytheec/MenuRadial/issues" target="_blank" rel="noopener">Issues</a>
         </div>
-        <p class="footer-copy">
+        <p class="footer-copy" data-i18n-html="footerMade">
             Made by <a href="https://github.com/emerytheec">Bender_Dios</a>
         </p>
     </div>
 </footer>
 
 <script>
-    // Fetch package info from index.json
+    // ===== i18n Translations =====
+    var i18n = {
+        es: {
+            navFeatures: "Funciones", navInstall: "Instalar",
+            heroSubtitle: "para VRChat",
+            heroDesc: "Sistema automatizado para crear menus de expresiones radiales. Genera animaciones, controllers FX, parametros y menus de forma visual y no-destructiva.",
+            btnCopy: "Copiar", btnCopied: "Copiado!",
+            statVersion: "Ultima Version", statReleases: "Versiones", statComponents: "Componentes", statLanguages: "Idiomas",
+            metaAuthor: "Autor", metaLicense: "Licencia", metaDeps: "Dependencias", metaDocs: "Documentacion", metaChangelog: "Cambios",
+            featuresTitle: "Funciones", featuresDesc: "Todo lo que necesitas para configurar tu avatar en un solo paquete.",
+            feat1Title: "Animaciones Radiales", feat1Desc: "Genera animaciones OnOff, AB y Linear automaticamente a partir de frames capturados visualmente.",
+            feat2Desc: "7 plugins NDMF aplican cambios solo en build. Tu avatar original nunca se modifica.",
+            feat3Title: "Cosido de Ropa", feat3Desc: "Cose armatures de ropa automaticamente con 230+ patrones de huesos compatibles.",
+            feat4Title: "Materiales Alternativos", feat4Desc: "Sistema de 3 capas para cambiar materiales con animaciones radiales lineales.",
+            feat5Title: "Iluminacion Radial", feat5Desc: "Controla la iluminacion de shaders lilToon via menus radiales en VRChat.",
+            feat6Title: "Organizar PhysBones", feat6Desc: "Reorganiza VRCPhysBones en contenedores limpios automaticamente.",
+            feat7Title: "Analisis de Texturas", feat7Desc: "Analiza peso VRAM y Mip Streaming de texturas para optimizar tu avatar.",
+            feat8Title: "Ajuste de Bounds", feat8Desc: "Unifica bounds de meshes para evitar culling visual en VRChat.",
+            feat9Title: "Multi-Idioma", feat9Desc: "Interfaz localizada en 6 idiomas: ES, EN, ZH, JA, KO, RU.",
+            installTitle: "Instalacion", installDesc: "Agrega Menu Radial a tu proyecto en menos de un minuto.",
+            step1Title: "Instalacion Rapida", step1Desc: 'Haz click en "Add to VCC" arriba. Esto abrira VRChat Creator Companion y agregara el repositorio automaticamente.',
+            step2Title: "Instalacion Manual", step2Desc: 'Si prefieres hacerlo manual: abre VCC, ve a <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> y pega la URL del listing.',
+            step3Title: "Agregar al Proyecto", step3Desc: 'Una vez agregado el repositorio, busca <strong>Menu Radial</strong> en la lista de paquetes de tu proyecto y haz click en <strong>"Add"</strong>.',
+            footerSource: "Codigo Fuente", footerLicense: "Licencia MIT",
+            footerMade: 'Hecho por <a href="https://github.com/emerytheec">Bender_Dios</a>'
+        },
+        en: {
+            navFeatures: "Features", navInstall: "Install",
+            heroSubtitle: "for VRChat",
+            heroDesc: "Automated system for creating radial expression menus. Generates animations, FX controllers, parameters and menus visually and non-destructively.",
+            btnCopy: "Copy", btnCopied: "Copied!",
+            statVersion: "Latest Version", statReleases: "Releases", statComponents: "Components", statLanguages: "Languages",
+            metaAuthor: "Author", metaLicense: "License", metaDeps: "Dependencies", metaDocs: "Documentation", metaChangelog: "Changelog",
+            featuresTitle: "Features", featuresDesc: "Everything you need to set up your avatar in a single package.",
+            feat1Title: "Radial Animations", feat1Desc: "Automatically generates OnOff, AB and Linear animations from visually captured frames.",
+            feat2Desc: "7 NDMF plugins apply changes only at build time. Your original avatar is never modified.",
+            feat3Title: "Bone Stitching", feat3Desc: "Automatically stitches clothing armatures with 230+ compatible bone patterns.",
+            feat4Title: "Alternative Materials", feat4Desc: "3-layer system for switching materials with linear radial animations.",
+            feat5Title: "Radial Illumination", feat5Desc: "Controls lilToon shader illumination via radial menus in VRChat.",
+            feat6Title: "PhysBone Organization", feat6Desc: "Automatically reorganizes VRCPhysBones into clean containers.",
+            feat7Title: "Texture Analysis", feat7Desc: "Analyzes VRAM weight and Mip Streaming of textures to optimize your avatar.",
+            feat8Title: "Bounds Adjustment", feat8Desc: "Unifies mesh bounds to prevent visual culling in VRChat.",
+            feat9Title: "Multi-Language", feat9Desc: "Interface localized in 6 languages: ES, EN, ZH, JA, KO, RU.",
+            installTitle: "Installation", installDesc: "Add Menu Radial to your project in less than a minute.",
+            step1Title: "Quick Install", step1Desc: 'Click "Add to VCC" above. This will open VRChat Creator Companion and add the repository automatically.',
+            step2Title: "Manual Install", step2Desc: 'If you prefer manual setup: open VCC, go to <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> and paste the listing URL.',
+            step3Title: "Add to Project", step3Desc: 'Once the repository is added, find <strong>Menu Radial</strong> in your project\'s package list and click <strong>"Add"</strong>.',
+            footerSource: "Source Code", footerLicense: "MIT License",
+            footerMade: 'Made by <a href="https://github.com/emerytheec">Bender_Dios</a>'
+        },
+        zh: {
+            navFeatures: "功能", navInstall: "安装",
+            heroSubtitle: "VRChat 专用",
+            heroDesc: "自动化径向表情菜单创建系统。以可视化和非破坏性方式生成动画、FX控制器、参数和菜单。",
+            btnCopy: "复制", btnCopied: "已复制!",
+            statVersion: "最新版本", statReleases: "版本数", statComponents: "组件", statLanguages: "语言",
+            metaAuthor: "作者", metaLicense: "许可证", metaDeps: "依赖", metaDocs: "文档", metaChangelog: "更新日志",
+            featuresTitle: "功能", featuresDesc: "一个包即可完成你的虚拟形象配置。",
+            feat1Title: "径向动画", feat1Desc: "从可视化捕获的帧自动生成 OnOff、AB 和 Linear 动画。",
+            feat2Desc: "7个 NDMF 插件仅在构建时应用更改。你的原始虚拟形象不会被修改。",
+            feat3Title: "服装缝合", feat3Desc: "使用230多种兼容骨骼模式自动缝合服装骨架。",
+            feat4Title: "替代材质", feat4Desc: "三层系统，通过线性径向动画切换材质。",
+            feat5Title: "径向照明", feat5Desc: "通过VRChat径向菜单控制lilToon着色器照明。",
+            feat6Title: "PhysBone整理", feat6Desc: "自动将VRCPhysBones重新整理到干净的容器中。",
+            feat7Title: "纹理分析", feat7Desc: "分析纹理的VRAM占用和Mip Streaming以优化你的虚拟形象。",
+            feat8Title: "边界调整", feat8Desc: "统一网格边界以防止VRChat中的视觉剔除。",
+            feat9Title: "多语言", feat9Desc: "界面支持6种语言：ES、EN、ZH、JA、KO、RU。",
+            installTitle: "安装", installDesc: "一分钟内将Menu Radial添加到你的项目。",
+            step1Title: "快速安装", step1Desc: '点击上方「Add to VCC」。这将打开VRChat Creator Companion并自动添加仓库。',
+            step2Title: "手动安装", step2Desc: '如果你更喜欢手动操作：打开VCC，前往 <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> 并粘贴listing URL。',
+            step3Title: "添加到项目", step3Desc: '仓库添加后，在项目的包列表中找到 <strong>Menu Radial</strong> 并点击 <strong>「Add」</strong>。',
+            footerSource: "源代码", footerLicense: "MIT 许可证",
+            footerMade: '由 <a href="https://github.com/emerytheec">Bender_Dios</a> 制作'
+        },
+        ja: {
+            navFeatures: "機能", navInstall: "導入",
+            heroSubtitle: "VRChat用",
+            heroDesc: "ラジアル表情メニューの自動作成システム。アニメーション、FXコントローラー、パラメータ、メニューを視覚的かつ非破壊的に生成します。",
+            btnCopy: "コピー", btnCopied: "コピー済み!",
+            statVersion: "最新バージョン", statReleases: "リリース数", statComponents: "コンポーネント", statLanguages: "言語",
+            metaAuthor: "作者", metaLicense: "ライセンス", metaDeps: "依存関係", metaDocs: "ドキュメント", metaChangelog: "変更履歴",
+            featuresTitle: "機能", featuresDesc: "アバター設定に必要なすべてが一つのパッケージに。",
+            feat1Title: "ラジアルアニメーション", feat1Desc: "視覚的にキャプチャしたフレームからOnOff、AB、Linearアニメーションを自動生成します。",
+            feat2Desc: "7つのNDMFプラグインがビルド時のみ変更を適用。元のアバターは変更されません。",
+            feat3Title: "衣装ボーン結合", feat3Desc: "230以上の互換ボーンパターンで衣装のアーマチュアを自動結合します。",
+            feat4Title: "代替マテリアル", feat4Desc: "リニアラジアルアニメーションでマテリアルを切り替える3層システム。",
+            feat5Title: "ラジアル照明", feat5Desc: "VRChatのラジアルメニューでlilToonシェーダーの照明を制御します。",
+            feat6Title: "PhysBone整理", feat6Desc: "VRCPhysBoneをクリーンなコンテナに自動的に再編成します。",
+            feat7Title: "テクスチャ分析", feat7Desc: "テクスチャのVRAM使用量とMip Streamingを分析してアバターを最適化します。",
+            feat8Title: "バウンド調整", feat8Desc: "メッシュのバウンドを統一してVRChatでの視覚カリングを防止します。",
+            feat9Title: "多言語対応", feat9Desc: "6言語対応のインターフェース：ES、EN、ZH、JA、KO、RU。",
+            installTitle: "導入方法", installDesc: "1分以内にMenu Radialをプロジェクトに追加できます。",
+            step1Title: "クイック導入", step1Desc: '上の「Add to VCC」をクリック。VRChat Creator Companionが開き、リポジトリが自動的に追加されます。',
+            step2Title: "手動導入", step2Desc: '手動で行う場合：VCCを開き、<code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> でlisting URLを貼り付けてください。',
+            step3Title: "プロジェクトに追加", step3Desc: 'リポジトリ追加後、プロジェクトのパッケージリストで <strong>Menu Radial</strong> を探し、<strong>「Add」</strong>をクリックしてください。',
+            footerSource: "ソースコード", footerLicense: "MITライセンス",
+            footerMade: '<a href="https://github.com/emerytheec">Bender_Dios</a> 制作'
+        },
+        ko: {
+            navFeatures: "기능", navInstall: "설치",
+            heroSubtitle: "VRChat용",
+            heroDesc: "래디얼 표정 메뉴 자동 생성 시스템. 애니메이션, FX 컨트롤러, 파라미터 및 메뉴를 시각적이고 비파괴적으로 생성합니다.",
+            btnCopy: "복사", btnCopied: "복사됨!",
+            statVersion: "최신 버전", statReleases: "릴리스", statComponents: "컴포넌트", statLanguages: "언어",
+            metaAuthor: "작성자", metaLicense: "라이선스", metaDeps: "의존성", metaDocs: "문서", metaChangelog: "변경 내역",
+            featuresTitle: "기능", featuresDesc: "아바타 설정에 필요한 모든 것을 하나의 패키지로.",
+            feat1Title: "래디얼 애니메이션", feat1Desc: "시각적으로 캡처한 프레임에서 OnOff, AB, Linear 애니메이션을 자동 생성합니다.",
+            feat2Desc: "7개의 NDMF 플러그인이 빌드 시에만 변경 사항을 적용합니다. 원본 아바타는 수정되지 않습니다.",
+            feat3Title: "의상 본 결합", feat3Desc: "230개 이상의 호환 본 패턴으로 의상 아마추어를 자동으로 결합합니다.",
+            feat4Title: "대체 머티리얼", feat4Desc: "리니어 래디얼 애니메이션으로 머티리얼을 전환하는 3계층 시스템.",
+            feat5Title: "래디얼 조명", feat5Desc: "VRChat 래디얼 메뉴를 통해 lilToon 셰이더 조명을 제어합니다.",
+            feat6Title: "PhysBone 정리", feat6Desc: "VRCPhysBone을 깔끔한 컨테이너로 자동 재정리합니다.",
+            feat7Title: "텍스처 분석", feat7Desc: "텍스처의 VRAM 사용량과 Mip Streaming을 분석하여 아바타를 최적화합니다.",
+            feat8Title: "바운드 조정", feat8Desc: "메시 바운드를 통합하여 VRChat에서 시각적 컬링을 방지합니다.",
+            feat9Title: "다국어 지원", feat9Desc: "6개 언어로 현지화된 인터페이스: ES, EN, ZH, JA, KO, RU.",
+            installTitle: "설치 방법", installDesc: "1분 이내에 Menu Radial을 프로젝트에 추가하세요.",
+            step1Title: "빠른 설치", step1Desc: '위의 "Add to VCC"를 클릭하세요. VRChat Creator Companion이 열리고 저장소가 자동으로 추가됩니다.',
+            step2Title: "수동 설치", step2Desc: '수동으로 하려면: VCC를 열고 <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code>에서 listing URL을 붙여넣으세요.',
+            step3Title: "프로젝트에 추가", step3Desc: '저장소가 추가되면 프로젝트 패키지 목록에서 <strong>Menu Radial</strong>을 찾아 <strong>"Add"</strong>를 클릭하세요.',
+            footerSource: "소스 코드", footerLicense: "MIT 라이선스",
+            footerMade: '<a href="https://github.com/emerytheec">Bender_Dios</a> 제작'
+        },
+        ru: {
+            navFeatures: "Функции", navInstall: "Установка",
+            heroSubtitle: "для VRChat",
+            heroDesc: "Автоматизированная система создания радиальных меню выражений. Генерирует анимации, FX-контроллеры, параметры и меню визуально и неразрушающе.",
+            btnCopy: "Копировать", btnCopied: "Скопировано!",
+            statVersion: "Последняя версия", statReleases: "Релизы", statComponents: "Компоненты", statLanguages: "Языки",
+            metaAuthor: "Автор", metaLicense: "Лицензия", metaDeps: "Зависимости", metaDocs: "Документация", metaChangelog: "Изменения",
+            featuresTitle: "Функции", featuresDesc: "Всё необходимое для настройки аватара в одном пакете.",
+            feat1Title: "Радиальные анимации", feat1Desc: "Автоматически генерирует анимации OnOff, AB и Linear из визуально захваченных кадров.",
+            feat2Desc: "7 плагинов NDMF применяют изменения только при сборке. Ваш оригинальный аватар не изменяется.",
+            feat3Title: "Сшивание костей", feat3Desc: "Автоматически сшивает арматуры одежды с 230+ совместимыми шаблонами костей.",
+            feat4Title: "Альтернативные материалы", feat4Desc: "3-уровневая система переключения материалов с линейными радиальными анимациями.",
+            feat5Title: "Радиальное освещение", feat5Desc: "Управляет освещением шейдеров lilToon через радиальные меню в VRChat.",
+            feat6Title: "Организация PhysBone", feat6Desc: "Автоматически реорганизует VRCPhysBones в чистые контейнеры.",
+            feat7Title: "Анализ текстур", feat7Desc: "Анализирует вес VRAM и Mip Streaming текстур для оптимизации аватара.",
+            feat8Title: "Настройка границ", feat8Desc: "Объединяет границы мешей для предотвращения визуального отсечения в VRChat.",
+            feat9Title: "Мультиязычность", feat9Desc: "Интерфейс локализован на 6 языках: ES, EN, ZH, JA, KO, RU.",
+            installTitle: "Установка", installDesc: "Добавьте Menu Radial в свой проект менее чем за минуту.",
+            step1Title: "Быстрая установка", step1Desc: 'Нажмите "Add to VCC" выше. Это откроет VRChat Creator Companion и автоматически добавит репозиторий.',
+            step2Title: "Ручная установка", step2Desc: 'Если вы предпочитаете вручную: откройте VCC, перейдите в <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> и вставьте URL листинга.',
+            step3Title: "Добавить в проект", step3Desc: 'После добавления репозитория найдите <strong>Menu Radial</strong> в списке пакетов проекта и нажмите <strong>«Add»</strong>.',
+            footerSource: "Исходный код", footerLicense: "Лицензия MIT",
+            footerMade: 'Создано <a href="https://github.com/emerytheec">Bender_Dios</a>'
+        }
+    };
+
+    // ===== Language switching =====
+    function setLang(lang) {
+        if (!i18n[lang]) lang = 'es';
+        var t = i18n[lang];
+        localStorage.setItem('mr-lang', lang);
+        document.getElementById('lang-select').value = lang;
+        document.documentElement.lang = lang;
+
+        // Update all data-i18n elements (textContent)
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n');
+            if (t[key] !== undefined) el.textContent = t[key];
+        });
+
+        // Update all data-i18n-html elements (innerHTML)
+        document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n-html');
+            if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+    }
+
+    // Init language from localStorage or browser
+    (function initLang() {
+        var saved = localStorage.getItem('mr-lang');
+        if (saved && i18n[saved]) { setLang(saved); return; }
+        var browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
+        var supported = { es:1, en:1, zh:1, ja:1, ko:1, ru:1 };
+        setLang(supported[browserLang] ? browserLang : 'es');
+    })();
+
+    // ===== Fetch package info from index.json =====
     (async function loadPackageInfo() {
         try {
-            const res = await fetch('./index.json');
-            const data = await res.json();
-            const pkg = data.packages['com.bender-dios.menu-radial'];
+            var res = await fetch('./index.json');
+            var data = await res.json();
+            var pkg = data.packages['com.bender-dios.menu-radial'];
             if (!pkg) return;
 
-            const versions = Object.keys(pkg.versions);
-            const latest = versions.sort((a, b) => {
-                const pa = a.split('.').map(Number);
-                const pb = b.split('.').map(Number);
-                for (let i = 0; i < 3; i++) {
+            var versions = Object.keys(pkg.versions);
+            var latest = versions.sort(function(a, b) {
+                var pa = a.split('.').map(Number);
+                var pb = b.split('.').map(Number);
+                for (var i = 0; i < 3; i++) {
                     if ((pa[i] || 0) !== (pb[i] || 0)) return (pa[i] || 0) - (pb[i] || 0);
                 }
                 return 0;
             }).pop();
 
-            const info = pkg.versions[latest];
+            var info = pkg.versions[latest];
 
             document.getElementById('stat-version').textContent = 'v' + info.version;
             document.getElementById('stat-versions').textContent = versions.length;
@@ -893,8 +1090,8 @@
             document.getElementById('pkg-unity').textContent = info.unity + '.' + (info.unityRelease || '');
             document.getElementById('pkg-license').textContent = info.license || 'MIT';
 
-            const deps = Object.entries(info.vpmDependencies || {})
-                .map(([name, ver]) => name.split('.').pop() + ' ' + ver)
+            var deps = Object.entries(info.vpmDependencies || {})
+                .map(function(e) { return e[0].split('.').pop() + ' ' + e[1]; })
                 .join(', ');
             document.getElementById('pkg-deps').textContent = deps || 'None';
         } catch (e) {
@@ -902,15 +1099,17 @@
         }
     })();
 
-    // Copy URL
+    // ===== Copy URL =====
     function copyUrl() {
-        const url = document.getElementById('listing-url').textContent;
+        var url = document.getElementById('listing-url').textContent;
+        var lang = localStorage.getItem('mr-lang') || 'es';
+        var t = i18n[lang] || i18n.es;
         navigator.clipboard.writeText(url).then(function() {
-            const btn = document.getElementById('copy-btn');
-            btn.textContent = 'Copied!';
+            var btn = document.getElementById('copy-btn');
+            btn.textContent = t.btnCopied;
             btn.classList.add('copied');
             setTimeout(function() {
-                btn.textContent = 'Copy';
+                btn.textContent = t.btnCopy;
                 btn.classList.remove('copied');
             }, 2000);
         });
