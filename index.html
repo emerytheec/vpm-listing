@@ -594,6 +594,107 @@
             font-size: 0.85rem;
         }
 
+        /* ===== Latest Release ===== */
+        .release-section {
+            padding: 40px 0 20px;
+        }
+        .release-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .release-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-warm), var(--accent), var(--accent-secondary));
+        }
+        .release-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .release-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .release-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .release-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--border-accent);
+            border-radius: 50px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .release-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .release-body {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+        .release-body h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 16px 0 8px;
+        }
+        .release-body h3:first-child {
+            margin-top: 0;
+        }
+        .release-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px;
+        }
+        .release-body li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+        }
+        .release-body li::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+        .release-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity var(--transition);
+        }
+        .release-link:hover { opacity: 0.8; }
+
         /* ===== Loading skeleton ===== */
         .skeleton {
             background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
@@ -622,6 +723,7 @@
             .nav-links { gap: 12px; }
             .nav-links a { font-size: 0.8rem; }
             .nav-right { gap: 12px; }
+            .release-header { flex-direction: column; align-items: flex-start; }
             .features-grid { grid-template-columns: 1fr; }
             .stats-bar { grid-template-columns: repeat(2, 1fr); }
         }
@@ -779,6 +881,34 @@
     </div>
 </section>
 
+<!-- Latest Release -->
+<section class="release-section" id="release">
+    <div class="container">
+        <div class="release-card">
+            <div class="release-header">
+                <div class="release-header-left">
+                    <span class="release-title" data-i18n="releaseTitle">Latest Release</span>
+                    <span class="release-tag" id="release-tag">
+                        <span class="skeleton" style="width:60px;height:16px"></span>
+                    </span>
+                </div>
+                <span class="release-date" id="release-date">
+                    <span class="skeleton" style="width:100px;height:14px"></span>
+                </span>
+            </div>
+            <div class="release-body" id="release-body">
+                <span class="skeleton" style="width:100%;height:16px"></span>
+                <br>
+                <span class="skeleton" style="width:80%;height:16px;margin-top:8px"></span>
+            </div>
+            <a class="release-link" id="release-link" href="#" target="_blank" rel="noopener" style="display:none">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span data-i18n="releaseViewFull">View on GitHub</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Features -->
 <section class="features-section" id="features">
     <div class="container">
@@ -920,6 +1050,7 @@
             step1Title: "Instalacion Rapida", step1Desc: 'Haz click en "Add to VCC" arriba. Esto abrira VRChat Creator Companion y agregara el repositorio automaticamente.',
             step2Title: "Instalacion Manual", step2Desc: 'Si prefieres hacerlo manual: abre VCC, ve a <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> y pega la URL del listing.',
             step3Title: "Agregar al Proyecto", step3Desc: 'Una vez agregado el repositorio, busca <strong>Menu Radial</strong> en la lista de paquetes de tu proyecto y haz click en <strong>"Add"</strong>.',
+            releaseTitle: "Ultimo Lanzamiento", releaseViewFull: "Ver en GitHub", releasePublished: "Publicado",
             footerSource: "Codigo Fuente", footerLicense: "Licencia MIT",
             footerMade: 'Hecho por <a href="https://github.com/emerytheec">Bender_Dios</a>'
         },
@@ -946,6 +1077,7 @@
             step1Title: "Quick Install", step1Desc: 'Click "Add to VCC" above. This will open VRChat Creator Companion and add the repository automatically.',
             step2Title: "Manual Install", step2Desc: 'If you prefer manual setup: open VCC, go to <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> and paste the listing URL.',
             step3Title: "Add to Project", step3Desc: 'Once the repository is added, find <strong>Menu Radial</strong> in your project\'s package list and click <strong>"Add"</strong>.',
+            releaseTitle: "Latest Release", releaseViewFull: "View on GitHub", releasePublished: "Published",
             footerSource: "Source Code", footerLicense: "MIT License",
             footerMade: 'Made by <a href="https://github.com/emerytheec">Bender_Dios</a>'
         },
@@ -972,6 +1104,7 @@
             step1Title: "快速安装", step1Desc: '点击上方「Add to VCC」。这将打开VRChat Creator Companion并自动添加仓库。',
             step2Title: "手动安装", step2Desc: '如果你更喜欢手动操作：打开VCC，前往 <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> 并粘贴listing URL。',
             step3Title: "添加到项目", step3Desc: '仓库添加后，在项目的包列表中找到 <strong>Menu Radial</strong> 并点击 <strong>「Add」</strong>。',
+            releaseTitle: "最新发布", releaseViewFull: "在GitHub查看", releasePublished: "发布于",
             footerSource: "源代码", footerLicense: "MIT 许可证",
             footerMade: '由 <a href="https://github.com/emerytheec">Bender_Dios</a> 制作'
         },
@@ -998,6 +1131,7 @@
             step1Title: "クイック導入", step1Desc: '上の「Add to VCC」をクリック。VRChat Creator Companionが開き、リポジトリが自動的に追加されます。',
             step2Title: "手動導入", step2Desc: '手動で行う場合：VCCを開き、<code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> でlisting URLを貼り付けてください。',
             step3Title: "プロジェクトに追加", step3Desc: 'リポジトリ追加後、プロジェクトのパッケージリストで <strong>Menu Radial</strong> を探し、<strong>「Add」</strong>をクリックしてください。',
+            releaseTitle: "最新リリース", releaseViewFull: "GitHubで見る", releasePublished: "公開日",
             footerSource: "ソースコード", footerLicense: "MITライセンス",
             footerMade: '<a href="https://github.com/emerytheec">Bender_Dios</a> 制作'
         },
@@ -1024,6 +1158,7 @@
             step1Title: "빠른 설치", step1Desc: '위의 "Add to VCC"를 클릭하세요. VRChat Creator Companion이 열리고 저장소가 자동으로 추가됩니다.',
             step2Title: "수동 설치", step2Desc: '수동으로 하려면: VCC를 열고 <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code>에서 listing URL을 붙여넣으세요.',
             step3Title: "프로젝트에 추가", step3Desc: '저장소가 추가되면 프로젝트 패키지 목록에서 <strong>Menu Radial</strong>을 찾아 <strong>"Add"</strong>를 클릭하세요.',
+            releaseTitle: "최신 릴리스", releaseViewFull: "GitHub에서 보기", releasePublished: "게시일",
             footerSource: "소스 코드", footerLicense: "MIT 라이선스",
             footerMade: '<a href="https://github.com/emerytheec">Bender_Dios</a> 제작'
         },
@@ -1050,6 +1185,7 @@
             step1Title: "Быстрая установка", step1Desc: 'Нажмите "Add to VCC" выше. Это откроет VRChat Creator Companion и автоматически добавит репозиторий.',
             step2Title: "Ручная установка", step2Desc: 'Если вы предпочитаете вручную: откройте VCC, перейдите в <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> и вставьте URL листинга.',
             step3Title: "Добавить в проект", step3Desc: 'После добавления репозитория найдите <strong>Menu Radial</strong> в списке пакетов проекта и нажмите <strong>«Add»</strong>.',
+            releaseTitle: "Последний релиз", releaseViewFull: "Смотреть на GitHub", releasePublished: "Опубликовано",
             footerSource: "Исходный код", footerLicense: "Лицензия MIT",
             footerMade: 'Создано <a href="https://github.com/emerytheec">Bender_Dios</a>'
         }
@@ -1118,6 +1254,61 @@
             document.getElementById('pkg-deps').textContent = deps || 'None';
         } catch (e) {
             document.getElementById('pkg-desc').textContent = 'Could not load package info.';
+        }
+    })();
+
+    // ===== Fetch latest release from GitHub =====
+    (async function loadLatestRelease() {
+        try {
+            var res = await fetch('https://api.github.com/repos/emerytheec/MenuRadial/releases/latest');
+            if (!res.ok) return;
+            var release = await res.json();
+
+            // Tag
+            document.getElementById('release-tag').textContent = release.tag_name;
+
+            // Date
+            var lang = localStorage.getItem('mr-lang') || 'es';
+            var t = i18n[lang] || i18n.es;
+            var date = new Date(release.published_at);
+            var dateStr = date.toLocaleDateString(lang === 'es' ? 'es-ES' : lang === 'zh' ? 'zh-CN' : lang === 'ja' ? 'ja-JP' : lang === 'ko' ? 'ko-KR' : lang === 'ru' ? 'ru-RU' : 'en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+            document.getElementById('release-date').textContent = (t.releasePublished || 'Published') + ' ' + dateStr;
+
+            // Body — simple markdown to HTML
+            var body = release.body || '';
+            var html = body
+                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                .replace(/^## (.+)$/gm, '<h3>$1</h3>')
+                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                .replace(/`([^`]+)`/g, '<code style="background:var(--bg-input);padding:1px 6px;border-radius:3px;font-size:0.85em;color:var(--accent)">$1</code>');
+
+            // Convert bullet lines to <ul><li>
+            var lines = html.split('\n');
+            var result = [];
+            var inList = false;
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                var bulletMatch = line.match(/^[-*] (.+)/);
+                if (bulletMatch) {
+                    if (!inList) { result.push('<ul>'); inList = true; }
+                    result.push('<li>' + bulletMatch[1] + '</li>');
+                } else {
+                    if (inList) { result.push('</ul>'); inList = false; }
+                    if (line.trim()) result.push(line);
+                }
+            }
+            if (inList) result.push('</ul>');
+
+            document.getElementById('release-body').innerHTML = result.join('\n');
+
+            // Link
+            var linkEl = document.getElementById('release-link');
+            linkEl.href = release.html_url;
+            linkEl.style.display = 'inline-flex';
+        } catch (e) {
+            // Silent fail — section stays with skeleton
         }
     })();
 
