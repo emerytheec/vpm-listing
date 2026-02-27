@@ -749,6 +749,7 @@
             <ul class="nav-links">
                 <li><a href="#features" data-i18n="navFeatures">Features</a></li>
                 <li><a href="#install" data-i18n="navInstall">Install</a></li>
+                <li><a href="https://emerytheec.github.io/MenuRadial-docs/" target="_blank" rel="noopener" data-i18n="navDocs">Docs</a></li>
                 <li><a href="https://github.com/emerytheec/MenuRadial" target="_blank" rel="noopener">GitHub</a></li>
             </ul>
             <select class="lang-select" id="lang-select" onchange="setLang(this.value)">
@@ -870,7 +871,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label" data-i18n="metaDocs">Documentation</span>
-                    <span class="meta-value"><a href="https://github.com/emerytheec/MenuRadial#readme" target="_blank" rel="noopener">README</a></span>
+                    <span class="meta-value"><a href="https://emerytheec.github.io/MenuRadial-docs/" target="_blank" rel="noopener" data-i18n="metaDocsLink">Full Documentation</a></span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label" data-i18n="metaChangelog">Changelog</span>
@@ -1013,6 +1014,7 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-links">
+            <a href="https://emerytheec.github.io/MenuRadial-docs/" target="_blank" rel="noopener" data-i18n="footerDocs">Documentation</a>
             <a href="https://github.com/emerytheec/MenuRadial" target="_blank" rel="noopener" data-i18n="footerSource">Source Code</a>
             <a href="https://github.com/emerytheec/MenuRadial/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
             <a href="https://github.com/emerytheec/MenuRadial/blob/main/LICENSE" target="_blank" rel="noopener" data-i18n="footerLicense">MIT License</a>
@@ -1028,7 +1030,7 @@
     // ===== i18n Translations =====
     var i18n = {
         es: {
-            navFeatures: "Funciones", navInstall: "Instalar",
+            navFeatures: "Funciones", navInstall: "Instalar", navDocs: "Docs",
             heroSubtitle: "para VRChat",
             heroDesc: "Sistema automatizado para crear menus de expresiones radiales. Genera animaciones, controllers FX, parametros y menus de forma visual y no-destructiva.",
             btnCopy: "Copiar", btnCopied: "Copiado!",
@@ -1051,11 +1053,11 @@
             step2Title: "Instalacion Manual", step2Desc: 'Si prefieres hacerlo manual: abre VCC, ve a <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> y pega la URL del listing.',
             step3Title: "Agregar al Proyecto", step3Desc: 'Una vez agregado el repositorio, busca <strong>Menu Radial</strong> en la lista de paquetes de tu proyecto y haz click en <strong>"Add"</strong>.',
             releaseTitle: "Ultimo Lanzamiento", releaseViewFull: "Ver en GitHub", releasePublished: "Publicado",
-            footerSource: "Codigo Fuente", footerLicense: "Licencia MIT",
+            footerDocs: "Documentacion", metaDocsLink: "Documentacion Completa", footerSource: "Codigo Fuente", footerLicense: "Licencia MIT",
             footerMade: 'Hecho por <a href="https://github.com/emerytheec">Bender_Dios</a>'
         },
         en: {
-            navFeatures: "Features", navInstall: "Install",
+            navFeatures: "Features", navInstall: "Install", navDocs: "Docs",
             heroSubtitle: "for VRChat",
             heroDesc: "Automated system for creating radial expression menus. Generates animations, FX controllers, parameters and menus visually and non-destructively.",
             btnCopy: "Copy", btnCopied: "Copied!",
@@ -1078,11 +1080,11 @@
             step2Title: "Manual Install", step2Desc: 'If you prefer manual setup: open VCC, go to <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> and paste the listing URL.',
             step3Title: "Add to Project", step3Desc: 'Once the repository is added, find <strong>Menu Radial</strong> in your project\'s package list and click <strong>"Add"</strong>.',
             releaseTitle: "Latest Release", releaseViewFull: "View on GitHub", releasePublished: "Published",
-            footerSource: "Source Code", footerLicense: "MIT License",
+            footerDocs: "Documentation", metaDocsLink: "Full Documentation", footerSource: "Source Code", footerLicense: "MIT License",
             footerMade: 'Made by <a href="https://github.com/emerytheec">Bender_Dios</a>'
         },
         zh: {
-            navFeatures: "功能", navInstall: "安装",
+            navFeatures: "功能", navInstall: "安装", navDocs: "文档",
             heroSubtitle: "VRChat 专用",
             heroDesc: "自动化径向表情菜单创建系统。以可视化和非破坏性方式生成动画、FX控制器、参数和菜单。",
             btnCopy: "复制", btnCopied: "已复制!",
@@ -1105,11 +1107,11 @@
             step2Title: "手动安装", step2Desc: '如果你更喜欢手动操作：打开VCC，前往 <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> 并粘贴listing URL。',
             step3Title: "添加到项目", step3Desc: '仓库添加后，在项目的包列表中找到 <strong>Menu Radial</strong> 并点击 <strong>「Add」</strong>。',
             releaseTitle: "最新发布", releaseViewFull: "在GitHub查看", releasePublished: "发布于",
-            footerSource: "源代码", footerLicense: "MIT 许可证",
+            footerDocs: "文档", metaDocsLink: "完整文档", footerSource: "源代码", footerLicense: "MIT 许可证",
             footerMade: '由 <a href="https://github.com/emerytheec">Bender_Dios</a> 制作'
         },
         ja: {
-            navFeatures: "機能", navInstall: "導入",
+            navFeatures: "機能", navInstall: "導入", navDocs: "ドキュメント",
             heroSubtitle: "VRChat用",
             heroDesc: "ラジアル表情メニューの自動作成システム。アニメーション、FXコントローラー、パラメータ、メニューを視覚的かつ非破壊的に生成します。",
             btnCopy: "コピー", btnCopied: "コピー済み!",
@@ -1132,11 +1134,11 @@
             step2Title: "手動導入", step2Desc: '手動で行う場合：VCCを開き、<code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> でlisting URLを貼り付けてください。',
             step3Title: "プロジェクトに追加", step3Desc: 'リポジトリ追加後、プロジェクトのパッケージリストで <strong>Menu Radial</strong> を探し、<strong>「Add」</strong>をクリックしてください。',
             releaseTitle: "最新リリース", releaseViewFull: "GitHubで見る", releasePublished: "公開日",
-            footerSource: "ソースコード", footerLicense: "MITライセンス",
+            footerDocs: "ドキュメント", metaDocsLink: "完全なドキュメント", footerSource: "ソースコード", footerLicense: "MITライセンス",
             footerMade: '<a href="https://github.com/emerytheec">Bender_Dios</a> 制作'
         },
         ko: {
-            navFeatures: "기능", navInstall: "설치",
+            navFeatures: "기능", navInstall: "설치", navDocs: "문서",
             heroSubtitle: "VRChat용",
             heroDesc: "래디얼 표정 메뉴 자동 생성 시스템. 애니메이션, FX 컨트롤러, 파라미터 및 메뉴를 시각적이고 비파괴적으로 생성합니다.",
             btnCopy: "복사", btnCopied: "복사됨!",
@@ -1159,11 +1161,11 @@
             step2Title: "수동 설치", step2Desc: '수동으로 하려면: VCC를 열고 <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code>에서 listing URL을 붙여넣으세요.',
             step3Title: "프로젝트에 추가", step3Desc: '저장소가 추가되면 프로젝트 패키지 목록에서 <strong>Menu Radial</strong>을 찾아 <strong>"Add"</strong>를 클릭하세요.',
             releaseTitle: "최신 릴리스", releaseViewFull: "GitHub에서 보기", releasePublished: "게시일",
-            footerSource: "소스 코드", footerLicense: "MIT 라이선스",
+            footerDocs: "문서", metaDocsLink: "전체 문서", footerSource: "소스 코드", footerLicense: "MIT 라이선스",
             footerMade: '<a href="https://github.com/emerytheec">Bender_Dios</a> 제작'
         },
         ru: {
-            navFeatures: "Функции", navInstall: "Установка",
+            navFeatures: "Функции", navInstall: "Установка", navDocs: "Документация",
             heroSubtitle: "для VRChat",
             heroDesc: "Автоматизированная система создания радиальных меню выражений. Генерирует анимации, FX-контроллеры, параметры и меню визуально и неразрушающе.",
             btnCopy: "Копировать", btnCopied: "Скопировано!",
@@ -1186,7 +1188,7 @@
             step2Title: "Ручная установка", step2Desc: 'Если вы предпочитаете вручную: откройте VCC, перейдите в <code>Settings</code> &rarr; <code>Packages</code> &rarr; <code>Add Repository</code> и вставьте URL листинга.',
             step3Title: "Добавить в проект", step3Desc: 'После добавления репозитория найдите <strong>Menu Radial</strong> в списке пакетов проекта и нажмите <strong>«Add»</strong>.',
             releaseTitle: "Последний релиз", releaseViewFull: "Смотреть на GitHub", releasePublished: "Опубликовано",
-            footerSource: "Исходный код", footerLicense: "Лицензия MIT",
+            footerDocs: "Документация", metaDocsLink: "Полная документация", footerSource: "Исходный код", footerLicense: "Лицензия MIT",
             footerMade: 'Создано <a href="https://github.com/emerytheec">Bender_Dios</a>'
         }
     };
