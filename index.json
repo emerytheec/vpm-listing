@@ -3076,6 +3076,33 @@
           },
           "legacyFolders": {},
           "license": "MIT"
+        },
+        "1.0.21": {
+          "name": "com.benderdios.idiomas",
+          "version": "1.0.21",
+          "displayName": "Idiomas - VRChat Localization",
+          "description": "Standalone localization system for VRChat worlds. Translates Canvas UI to 11 languages with auto-detection, dropdown selector, CJK/Cyrillic font support, and MyMemory auto-translate.",
+          "unity": "2022.3",
+          "url": "https://github.com/emerytheec/Idiomas/releases/download/v1.0.21/com.benderdios.idiomas-1.0.21.zip",
+          "keywords": [
+            "vrchat",
+            "udon",
+            "udonsharp",
+            "localization",
+            "i18n",
+            "translation",
+            "language",
+            "idiomas"
+          ],
+          "author": {
+            "name": "Bender_Dios",
+            "url": "https://github.com/emerytheec"
+          },
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.8.1"
+          },
+          "legacyFolders": {},
+          "license": "MIT"
         }
       }
     }
